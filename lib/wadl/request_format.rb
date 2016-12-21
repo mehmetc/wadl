@@ -49,7 +49,7 @@ module WADL
           value = header_values[name] || header_values[name.to_sym]
           value = param % value
 
-          uri.headers[name] = value if value
+          uri.headers[name] = value unless value.empty? || value.nil?
         else
           value = query_values[name] || query_values[name.to_sym]
           value = param.format(value, nil, 'query')
