@@ -63,6 +63,11 @@ module WADL
         "Basic #{["#{user}:#{pass}"].pack('m')}")
     end
 
+    # Sets apikey auth parameter
+    def with_apikey_auth(apikey, header = 'Authorization', prefix = 'apikey')
+      resource_and_address.auth(header, "#{prefix} #{apikey}")
+    end
+
     # Sets OAuth parameters
     #
     # Args:

@@ -65,10 +65,10 @@ module WADL
     end
 
     def start
-      self.http = Net::HTTP.start(
-        uri.hostname, uri.port,
-        use_ssl: uri.scheme == 'https'
-      )
+      xhttp = Net::HTTP.new(uri.hostname, uri.port)
+      #xhttp.set_debug_output(STDOUT)
+      xhttp.use_ssl = uri.scheme == 'https'
+      self.http = xhttp
 
       self
     end

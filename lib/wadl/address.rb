@@ -167,7 +167,7 @@ module WADL
           end
 
           unless fragment.empty?
-            uri << '/' unless uri.empty? || uri =~ /\/\z/
+            uri << '/' unless uri.empty? || uri =~ /\/\z/ || fragment =~ /^\//
             uri << fragment
           end
         elsif fragment.required?
